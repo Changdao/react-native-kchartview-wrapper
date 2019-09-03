@@ -59,3 +59,18 @@ typings/
 
 # next.js build output
 .next
+
+.DS_Store
+
+local.properties
+
+build
+build/
+.classpath
+.gradle/
+.idea/
+.project
+.settings/
+.vscode/
+KChartView
+

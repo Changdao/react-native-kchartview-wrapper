@@ -1,0 +1,14 @@
+{
+  "name": "react-native-kchartview-wrapper",
+  "version": "1.0.0",
+  "description": "A react-native wrapper for KChartView",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-native": "0.59.4"
+  }
+}

@@ -32,6 +32,7 @@ import android.util.Log;
 public class KChartViewManager extends SimpleViewManager<KChartView> {
     public static final String REACT_CLASS = "RNKChartView";
     private static final int COMMAND_APPEND_DATA = 1;
+    private static final int COMMAND_SHOW_LOADING = 2;
     //private static final int COMMAND_RESET = 2;
 
     private Activity mActivity = null;
@@ -107,7 +108,7 @@ public class KChartViewManager extends SimpleViewManager<KChartView> {
         final List<KLineEntity> data = DataExtract.extract(propArray);
         DataHelper.calculate(data);
         mAdapter.addFooterData(data);
-        mKChartView.startAnimation();
+        //mKChartView.startAnimation();
         mKChartView.refreshEnd();
         
         /*if (!LibsChecker.checkVitamioLibs(mActivity))
@@ -135,7 +136,8 @@ public class KChartViewManager extends SimpleViewManager<KChartView> {
     @Override 
     public Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(
-            "appendData", COMMAND_APPEND_DATA
+            "appendData", COMMAND_APPEND_DATA,
+            "showLoading", COMMAND_SHOW_LOADING
         );
     }
 
@@ -144,7 +146,12 @@ public class KChartViewManager extends SimpleViewManager<KChartView> {
         switch (commandId) {
             case COMMAND_APPEND_DATA: 
                 Log.i("KCHARTVIEW","receiveCommand, appendData");
-                mAdapter.addFooterData(DataHelper.calculate(DataExtract.extract(args.getArray(0))));
+                final List<KLineEntity> data = DataExtract.extract(args.getArray(0));
+                DataHelper.calculate(data);
+                mAdapter.addFooterData(data);
+                break;
+            case COMMAND_SHOW_LOADING:
+                mKChartView.showLoading();
                 break;
         }
     }

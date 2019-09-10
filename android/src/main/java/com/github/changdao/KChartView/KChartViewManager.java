@@ -133,6 +133,18 @@ public class KChartViewManager extends SimpleViewManager<KChartView> {
         mKChartView.setBackgroundColor(color);
     }
 
+    @ReactProp(name = "increasingColor")
+    public void setIncreasingColor(KChartView view,Integer color){
+        mKChartView.setIncreasingColor(color);
+    }
+
+    @ReactProp(name = "decreasingColor")
+    public void setDecreasingColor(KChartView view,Integer color){
+        mKChartView.setDecreasingColor(color);
+    }
+
+
+
     @Override 
     public Map<String, Integer> getCommandsMap() {
         return MapBuilder.of(

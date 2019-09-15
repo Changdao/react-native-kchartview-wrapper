@@ -9,6 +9,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "react-native": "0.59.4"
+    "react-native": "0.57.1",
+    "create-react-class": "^15.6.3"
   }
 }

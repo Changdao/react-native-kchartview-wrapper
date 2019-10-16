@@ -7,7 +7,7 @@
 Only support android. 
 目前只支持Android, 因为KChartView只支持Android. 
 
-## install/安装  
+## Install/安装  
 ```
 npm install react-native-kchartview-wrapper
 react-native link react-native-kchartview-wrapper

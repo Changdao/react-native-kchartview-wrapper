@@ -14,11 +14,21 @@ import java.util.Collections;
 import java.util.List;
 
 import android.util.Log;
+import android.app.Activity ;
 
 public class KChartViewPackage implements ReactPackage {
 
     static{
-        Log.i("ENMEM","[INFO]kchartviewpackage enter.");
+        Log.i("ReactNativeJS","[INFO]kchartviewpackage enter.");
+    }
+
+    private Activity mActivity = null;
+
+    public KChartViewPackage(Activity activity){
+        Log.i("ReactNativeJS","construct kchartviewpackage with activity");
+        mActivity = activity;
+    }
+    public KChartViewPackage(){
     }
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
@@ -33,7 +43,7 @@ public class KChartViewPackage implements ReactPackage {
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
-                new KChartViewManager()
+                new KChartViewManager(mActivity)
         );
     }
 

@@ -51,9 +51,9 @@ public class KChartViewManager extends SimpleViewManager<KChartView> implements 
     
     private KChartView mKChartView;
 
-    // public KChartViewManager(Activity activity) {
-    //     mActivity = activity;
-    // }
+    public KChartViewManager(Activity activity) {
+         mActivity = activity;
+    }
 
     @Override
     public String getName() {
@@ -66,7 +66,7 @@ public class KChartViewManager extends SimpleViewManager<KChartView> implements 
         {
             mContext = context;
             mKChartView =  new KChartView(context);
-            
+            mKChartView.setActivity(mActivity);
             mKChartView.setDateTimeFormatter(new DateFormatter());
             mKChartView.setGridRows(4);
             mKChartView.setGridColumns(4);
